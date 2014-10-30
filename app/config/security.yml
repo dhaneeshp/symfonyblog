@@ -1,0 +1,66 @@
+security:
+    encoders:
+        Treewalker\Bundle\UserBundle\Entity\Users: 
+            algorithm: sha1
+            encode_as_base64: false
+        Treewalker\Bundle\UserBundle\Entity\Admins: 
+            algorithm: sha1
+            encode_as_base64: false
+            
+            
+    role_hierarchy:
+        ROLE_ADMIN : ROLE_USER
+        ROLE_SUPER_ADMIN: [ ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH ]
+        
+        
+    providers:
+        frontendusers:
+            entity: { class: TreewalkerUserBundle:Users, property: username }
+            
+        administrators:
+            entity: { class: TreewalkerUserBundle:Admins, property: username }
+            
+    firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+            anonymous: true
+            
+        administrators:
+            pattern:    ^/admin/
+            anonymous: ~
+            provider: administrators
+            form_login:
+                login_path: /admin/login
+                check_path: /admin/login_check     
+                csrf_provider: form.csrf_provider
+                default_target_path: treewalker_blog_admin_homepage
+            logout:
+                path: /admin/logout
+                target: /admin/login
+                invalidate_session: false
+        
+        frontendusers:
+            pattern:  ^/
+            anonymous: ~
+            form_login:
+                login_path: /login
+                check_path: /login_check
+                csrf_provider: form.csrf_provider
+                default_target_path: treewalker_blog_admin_homepage
+            logout:
+                path: /logout
+                invalidate_session: false
+            
+        
+        
+            #http_basic: ~
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY } 
+        - { path: ^/admin, roles: ROLE_ADMIN } 
+        - { path: ^/efconnect, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/elfinder, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        

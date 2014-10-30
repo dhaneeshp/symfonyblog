@@ -1,0 +1,49 @@
+treewalker_newsletter:
+    resource: "@TreewalkerNewsletterBundle/Resources/config/routing.yml"
+    prefix:   /
+
+treewalker_charity:
+    resource: "@TreewalkerCharityBundle/Resources/config/routing.yml"
+    prefix:   /
+
+treewalker_social_login:
+    resource: "@TreewalkerSocialLoginBundle/Resources/config/routing.yml"
+    prefix:   /
+
+treewalker_media:
+    resource: "@TreewalkerMediaBundle/Resources/config/routing.yml"
+    prefix:   /
+
+treewalker_pagination:
+    resource: "@TreewalkerPaginationBundle/Resources/config/routing.yml"
+    prefix:   /
+
+treewalker_admin:
+    resource: "@TreewalkerAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
+treewalker_user:
+    resource: "@TreewalkerUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+treewalker_blog:
+    resource: "@TreewalkerBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+admin_login:
+    path:   /admin/login
+    defaults: { _controller: TreewalkerAdminBundle:Admin:login }
+admin_login_check:
+    path:   /admin/login_check
+login:
+    path:     /login
+    defaults: { _controller: TreewalkerUserBundle:Security:login }
+login_check:
+    path: /login_check   
+    
+logout:
+    path: /logout
+    
+admin_logout:
+    path: /admin/logout
+
+
