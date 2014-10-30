@@ -1,0 +1,41 @@
+{% extends "TreewalkerAdminBundle:Layout:layout.html.twig" %}
+
+{% block content %}
+    <div style="float:left; width:100%; ">
+        <span class="btn" style="float:right; margin-right:100px">
+            <a href="{{path('treewalker_blog_admin_add')}}">Add Blog</a>
+        </span>
+        
+    </div>
+    {% for blog in pagination %}
+        <div class="row">
+            <span class="column">
+                <a href="{{ path('treewalker_blog_admin_edit',{'id':blog.id}) }}" >
+                    {{ blog.title }}
+                </a>                
+            </span>
+                <span class="column">
+                    
+                     <img src="{{ asset(['uploads/images/', blog.image]|join) }}"  />
+                </span>
+                <span class="column">
+                    <a href="{{ path('treewalker_blog_admin_edit',{'id':blog.id}) }}" >Edit</a>
+                   
+                    
+                </span>
+                    <span class="column">
+                        <a href="{{ path('treewalker_blog_admin_delete',{'id':blog.id}) }}" >
+                            Delete
+                        </a>
+                    </span>
+        </div>
+        
+    {% else %}
+        There are no Blogs !
+    {% endfor %}
+        
+    {% if pagination|length > 0 and paginator.getTotalPages() > 1 %}
+        {{ include('TreewalkerPaginationBundle:Default:paginator_navigation.html.twig', {'paginator' : paginator}) }}
+    {% endif %}
+    
+{% endblock content %}

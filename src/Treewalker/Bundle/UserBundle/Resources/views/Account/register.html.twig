@@ -1,0 +1,44 @@
+{% extends "TreewalkerBlogBundle:Layout:layout.html.twig" %}
+
+{% block body %}
+    
+                
+        {{ form_start(form) }}
+           
+          <div class="form_row">
+              {{ form_row(form.firstname) }}
+          </div>
+          <div class="form_row">
+              {{ form_row(form.lastname) }}
+          </div>
+            <div class="form_row">
+                {{ form_row(form.city) }}
+            </div>
+            <div class="form_row">
+                {{ form_row(form.country) }}
+            </div>
+            <div class="form_row">
+                {{ form_row(form.dob) }}
+            </div>
+            <div class="form_row">
+                {{ form_row(form.email) }}
+            </div>
+            <div class="form_row">
+                {{ form_row(form.username) }}
+            </div>
+            <div class="form_row">
+                {{ form_row(form.password.password) }}
+            </div>
+            <div class="form_row">
+                {{ form_row(form.password.confirm) }}
+            </div>
+          
+          
+          
+          <input type="submit" value="Register">
+        {{ form_end(form) }}
+        
+    
+    
+    
+{% endblock %}

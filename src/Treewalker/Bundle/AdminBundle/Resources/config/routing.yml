@@ -1,0 +1,11 @@
+#treewalker_admin_homepage:
+#    path:     /admin
+#    defaults: { _controller: TreewalkerAdminBundle:Default:index }
+treewalker_admin_homepage:
+   resource: @TreewalkerAdminBundle/Controller/AdminController.php
+   type:     annotation
+   prefix:   /admin/
+
+
+    
+    

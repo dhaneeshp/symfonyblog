@@ -1,0 +1,13 @@
+{% extends "TreewalkerAdminBundle:Layout:layout.html.twig" %}
+
+{% block content %}
+    {% for article in pagination %}
+        {% if article.class_type == 'image' %}
+          {{ article.image| vlabs_filter('resize', { 'width' : 150, 'height' : 150 })|vlabs_media('TreewalkerMediaBundle:Media:image.html.twig') }}            
+         
+        {% else %}
+          {{ article.image|vlabs_media('TreewalkerMediaBundle:Media:document.html.twig') }}
+        {% endif %}
+     {% endfor %}   
+    
+{% endblock %}    

@@ -1,0 +1,47 @@
+treewalker_blog_homepage:
+    path:     /
+    defaults: { _controller: TreewalkerBlogBundle:Blog:index }
+    
+TreewalkerBlogBundle_blog_show:
+    path:     /{id}
+    defaults: { _controller: TreewalkerBlogBundle:Blog:show }
+    requirements:
+        _method:  GET
+        id: \d+ 
+TreewalkerBlogBundle:
+    path:   /
+    defaults: { _controller: TreewalkerBlogBundle:Blog:index }
+    
+TreewalkerBlogBundle_comment_create:
+    pattern:  /comment/{blog_id}
+    defaults: { _controller: TreewalkerBlogBundle:Comment:create }
+    requirements:
+        _method:  POST
+        blog_id: \d+        
+        
+treewalker_blog_about:
+    path:     /about/
+    defaults: { _controller: TreewalkerBlogBundle:Blog:about }
+    
+treewalker_blog_contact:
+    path:     /contact/
+    defaults: { _controller: TreewalkerBlogBundle:Blog:contact }
+
+treewalker_blog_admin_homepage:
+   resource: @TreewalkerBlogBundle/Controller/BlogAdminListController.php
+   type:     annotation
+   prefix:   /admin/blog/
+
+treewalker_blog_admin_ajax_remove_image:
+    path:   /admin/blog/ajax/remove/image
+    defaults:  { _controller: TreewalkerBlogBundle:BlogAjax:removefile }
+   
+treewalker_blog_admin_ajax:
+   resource: @TreewalkerBlogBundle/Controller/BlogAjaxController.php
+   type:     annotation
+   prefix:   /admin/blog/ajax
+   
+treewalker_blog_post:
+    resource: @TreewalkerBlogBundle/Controller/PostController.php
+    type:    annotation
+    prefix:  /post

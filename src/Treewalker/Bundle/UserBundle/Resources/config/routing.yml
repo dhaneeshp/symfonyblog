@@ -1,0 +1,15 @@
+treewalker_user_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: TreewalkerUserBundle:Default:index }
+
+    
+treewalker_user_registration:
+   resource: @TreewalkerUserBundle/Controller/RegistrationController.php
+   type:     annotation
+   prefix:   /register
+
+treewalker_admin_users:
+    resource: @TreewalkerUserBundle/Controller/UsersAdminController.php
+    type:   annotation
+    prefix: /admin/users
+    

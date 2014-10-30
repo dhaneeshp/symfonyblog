@@ -1,0 +1,70 @@
+{% extends "TreewalkerAdminBundle:Layout:layout.html.twig" %}
+{% block content %}
+   {{ form_start(form, {'attr':{'class':'edit_blog_form'} }) }}
+    {{ form_errors(form) }}
+    
+    {%if file_exists(form.vars.value.path ~ form.vars.value.image) %}
+      <div class="field_row" id="uploaded_image">
+          <label>Blog Image : </label>
+        <img src="{{ asset('uploads/images/' ~ form.vars.value.image) }}" width="200" >
+        <br /><a href="javascript:void(0)" onclick="return removeImage('{{form.vars.value.image}}')"> Remove
+        </a>
+      </div>
+      <div class="field_row" style="display:none" id="upload_image_file">
+            {{ form_row(form.blog_image) }}
+     </div>
+    {% else %}
+        {{ form.vars.value.path ~form.vars.value.image }} image doesn't exists 
+        <div class="field_row" id="upload_image_file">
+            {{ form_row(form.blog_image) }}
+        </div>
+    {% endif %}    
+ 
+    <div class="field_row">
+        {{ form_row(form.blog.title )}}
+    </div>
+    <div class="field_row">
+        {{ form_row(form.blog.blog )}}
+    </div>
+    <div class="field_row">
+        {{ form_row(form.blog.author )}}
+    </div>
+    <div class="field_row">
+        {{ form_row(form.blog.tags )}}
+    </div>
+
+    <div class="field_row">
+        {{ form_row(form.submit) }}
+    </div>
+  {{ form_end(form) }}
+{% endblock %}
+
+
+{% block extra_javascript_footer %}
+    <script type="text/javascript">
+        
+        function removeImage(filename){
+            
+            $.ajax({
+               url:"{{ path('treewalker_blog_admin_ajax_remove_image') }}",
+               type:'post',
+               data:[{'name':'filename',value:filename},{'name':'blog_id',value:'{{ blog_id }}' }],
+               dataType:'json',
+               success:function(response){
+                            alert(response.filename);
+                            $("#uploaded_image").hide();
+                            $("#upload_image_file").show();
+               }   ,
+               error:function(response){
+                   alert(response.responseText);
+               }
+            });
+        }
+        
+        $(document).ready(function(){
+           
+        });
+    </script>
+    
+    
+{% endblock %}    

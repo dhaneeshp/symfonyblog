@@ -1,0 +1,9 @@
+treewalker_admin_media_homepage:
+    prefix:     /admin/media
+    resource: @TreewalkerMediaBundle/Controller/MediaAdminController.php
+    type:     annotation
+
+treewalker_admin_media_article:
+    prefix:     /admin/article
+    resource: @TreewalkerMediaBundle/Controller/ArticleAdminController.php
+    type:     annotation

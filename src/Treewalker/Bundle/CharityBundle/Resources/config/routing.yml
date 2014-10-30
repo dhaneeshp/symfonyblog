@@ -1,0 +1,3 @@
+treewalker_charity_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: TreewalkerCharityBundle:Default:index }

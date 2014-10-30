@@ -1,0 +1,3 @@
+treewalker_social_login_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: TreewalkerSocialLoginBundle:Default:index }

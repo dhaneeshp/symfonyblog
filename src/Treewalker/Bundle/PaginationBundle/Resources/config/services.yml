@@ -1,0 +1,7 @@
+parameters:
+#    treewalker_pagination.example.class: Treewalker\Bundle\PaginationBundle\Example
+
+services:
+#    treewalker_pagination.example:
+#        class: %treewalker_pagination.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

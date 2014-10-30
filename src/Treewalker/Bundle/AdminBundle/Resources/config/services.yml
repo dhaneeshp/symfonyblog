@@ -1,0 +1,7 @@
+parameters:
+#    treewalker_admin.example.class: Treewalker\Bundle\AdminBundle\Example
+
+services:
+#    treewalker_admin.example:
+#        class: %treewalker_admin.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

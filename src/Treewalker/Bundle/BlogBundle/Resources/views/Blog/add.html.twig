@@ -1,0 +1,21 @@
+{% extends "TreewalkerAdminBundle:Layout:layout.html.twig" %}
+{% block content %}
+{{ form_start(form) }} 
+    <div class="field_row">
+        {{ form_row(form.blog_image) }}
+    </div>
+    <div class="field_row">
+        {{ form_row(form.blog.title) }}
+    </div>
+    <div class="field_row">
+        {{ form_row(form.blog.author) }}
+    </div>
+    <div class="field_row">
+        {{ form_row(form.blog.blog) }}
+    </div>
+    <div class="field_row">
+        {{ form_row(form.blog.tags) }}
+    </div>
+        
+{{ form_end(form) }}
+{% endblock %}

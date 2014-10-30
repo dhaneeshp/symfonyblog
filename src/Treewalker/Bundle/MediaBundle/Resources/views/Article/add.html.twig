@@ -1,0 +1,11 @@
+{% extends 'TreewalkerAdminBundle:Layout:layout.html.twig' %}
+
+{% block content %}
+    {{ form_start(form) }}
+    
+        <div class="field_row">
+              {{ form_row(form.image) }}
+          </div>
+    {{ form_end(form) }}
+    
+{% endblock %}

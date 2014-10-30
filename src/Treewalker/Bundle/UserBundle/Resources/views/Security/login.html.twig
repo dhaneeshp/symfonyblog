@@ -1,0 +1,24 @@
+{% extends "TreewalkerBlogBundle:Layout:layout.html.twig" %}
+{% block body %}
+{% if error %}
+<div>{{ error.message }}</div>
+{% endif %}
+<form action="{{ path('login_check') }}" method="post" class="form">
+<div class="form_row">
+<label for="username">Username:</label>
+<input type="text" id="username" name="_username" value="{{ last_username }}" />
+</div>
+<div class="form_row">
+<label for="password">Password:</label>
+<input type="password" id="password" name="_password" />
+</div>
+<input type="hidden" name="_target_path" value="treewalker_blog_homepage" />
+<input type="hidden" name="_csrf_token"
+        value="{{ csrf_token('authenticate') }}"
+    >
+<div class="form_row">
+    <input type="submit" name="login" style="text-align: center" />
+</div>
+</form>
+
+{% endblock %}

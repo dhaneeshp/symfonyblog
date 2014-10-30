@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>{% block title %}{{ websitetitle | trans }}{% endblock %}</title>
+    <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+    {% stylesheets '@TreewalkerBlogBundle/Resources/assets/css/blog.css'  %}
+       <link type="text/css"  href="{{ asset_url}}" rel="stylesheet" >
+    {% endstylesheets %}
+    {% stylesheets '@TreewalkerAdminBundle/Resources/assets/css/*'  %}
+       <link type="text/css"  href="{{ asset_url}}" rel="stylesheet" >
+    {% endstylesheets %}
+ </head>
+ <body>
+ {% block body %}
+         {% block top_menu %}
+            <!--=========Top menu=========-->
+            <header>
+                <div class="logo">
+                    <a class="brand" href="{{ path('treewalker_admin_homepage') }}">
+                        <img src="{{ asset('uploads/images/images.jpg') }}" style="height:25px;width:75px">
+                    </a>
+                </div>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <div class="navbar">
+                         <div id="cssmenu">
+                         {{ knp_menu_render('TreewalkerAdminBundle:Builder:mainMenu') }}
+                         </div>
+                    </div>
+                    <div class="user_info_section" >                    
+                        Welcome {{ app.user.firstname }}! <a href="{{path('admin_logout') }}">Logout</a>                    
+                    </div>
+                {% endif %}
+            </header>
+        {% endblock %}  
+        
+        <div class="content">
+        {% block content %}{% endblock content %}
+        
+        </div>
+ {% endblock %}
+ {{ tinymce_init() }}
+ {% block extra_javascript_footer %}{% endblock %}
+ 
+ </body>
+</html>

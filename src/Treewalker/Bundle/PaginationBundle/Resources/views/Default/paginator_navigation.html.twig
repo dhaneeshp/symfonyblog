@@ -1,0 +1,35 @@
+{% set currentPath = path(app.request.get('_route'), app.request.get('_route_params')) %}
+{% set currentPage = paginator.getCurrentPage() %}
+{% set totalPages = paginator.getTotalPages() %}
+ 
+<div class="pagination" id="paging">
+    
+    {% if currentPage > 1 %}
+      <a href="{{ currentPath }}?page=1" class="page">&laquo;</a>
+      <a href="{{ currentPath }}?page={{ currentPage > 1 ? currentPage - 1 : 1 }}" class="page"><</a>
+    {% endif %}
+    {% if (currentPage - 3) > 0 %}
+      <a href="#">...</a>
+    {% endif %}
+    {% if (currentPage - 2) > 0 %}
+        <a href="{{ currentPath }}?page={{ currentPage - 2 }}" class="page">{{ currentPage - 2 }}</a>
+    {% endif %}
+    {% if (currentPage - 1) > 0 %}
+        <a href="{{ currentPath }}?page={{ currentPage - 1 }}" class="page">{{ currentPage - 1 }}</a>
+    {% endif %}
+    <a href="#" class="page active">{{ currentPage }}</a>
+   {% if (currentPage + 1) <= totalPages %}
+    <a href="{{ currentPath }}?page={{ currentPage + 1 }}" class="page">{{ currentPage + 1 }}</a>
+{% endif %}
+{% if (currentPage + 2) <= totalPages %}
+    <a href="{{ currentPath }}?page={{ currentPage + 2 }}" class="page">{{ currentPage + 2 }}</a>
+{% endif %}
+{% if (currentPage + 2) < totalPages %}
+    <a href="#" >...</a>
+{% endif %}
+ 
+{% if currentPage < totalPages %}
+    <a href="{{ currentPath }}?page={{ currentPage < totalPages ? currentPage + 1 : currentPage }}" class="page">></a>
+    <a href="{{ currentPath }}?page={{ totalPages }}" class="page">&raquo;</a>
+{% endif %}
+    

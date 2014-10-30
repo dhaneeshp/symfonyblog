@@ -1,0 +1,124 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 6 Aug, 2014, 3:47:58 PM
+    Author     : dhaneeshp
+*/
+
+.row {
+    clear:both;
+    float: left;
+    width:100%;
+    border:1px solid;
+    padding:10px;
+}
+
+.column{
+    float:left;
+    margin-right: 50px;
+    width:200px;
+    text-align: justify;
+}
+
+.column img{
+    max-width: 120px;
+}
+
+.field_row{
+    float:left;
+    padding-bottom: 10px;
+    width:100%;
+}
+
+.field_row label{
+    float:left;
+    width: 175px;
+    
+}
+
+#mce_14{
+    
+    float:left;
+    width:650px;
+    
+}
+
+#treewalker_bundle_blogbundle_blogentry_blog_blog_ifr{
+    height:255px !important;
+}
+
+.edit_blog_form{
+    float:left;
+    width:950px;
+    margin-left: 50px;
+}
+
+#treewalker_bundle_blogbundle_blogentry_blog_tags{
+    float:left;
+    width:650px;
+    resize: none;
+    padding: 5px;
+}
+.edit_blog_form input[type=text]{
+    float:left;
+    width:300px;
+    padding:5px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px; /*optional*/
+    color: #aaa;
+    font-size: .875em;
+}
+
+.pagination {
+    /*background: #f2f2f2;*/
+    padding: 20px;
+    margin-bottom: 20px;
+    float:left;
+    clear:both;
+    
+}
+
+.page {
+    display: inline-block;
+    padding: 0px 9px;
+    margin-right: 4px;
+    border-radius: 3px;
+    border: solid 1px #c0c0c0;
+    background: #e9e9e9;
+    box-shadow: inset 0px 1px 0px rgba(255,255,255, .8), 0px 1px 3px rgba(0,0,0, .1);
+    font-size: .875em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #717171;
+    text-shadow: 0px 1px 0px rgba(255,255,255, 1);
+}
+
+
+
+.page:hover, .page.gradient:hover {
+    background: #fefefe;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FEFEFE), to(#f0f0f0));
+    background: -moz-linear-gradient(0% 0% 270deg,#FEFEFE, #f0f0f0);
+}
+
+.page.active {
+    border: none;
+    background: #616161;
+    box-shadow: inset 0px 0px 8px rgba(0,0,0, .5), 0px 1px 0px rgba(255,255,255, .8);
+    color: #f0f0f0;
+    text-shadow: 0px 0px 3px rgba(0,0,0, .5);
+}
+
+.page.gradient {
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f8f8f8), to(#e9e9e9));
+    background: -moz-linear-gradient(0% 0% 270deg,#f8f8f8, #e9e9e9);
+}
+
+

@@ -1,0 +1,32 @@
+{% extends "TreewalkerAdminBundle:Layout:layout.html.twig" %}
+
+{% block content %}
+ 
+    {% for blog in blogs %}
+        <div class="row">
+            <span class="column">
+                <a href="{{ path('treewalker_blog_admin_edit',{'id':blog.id}) }}" >
+                    {{ blog.title }}
+                </a>                
+            </span>
+                <span class="column">
+                    
+                     <img src="{{ asset(['uploads/images/', blog.image]|join) }}"  />
+                </span>
+                <span class="column">
+                    <a href="{{ path('treewalker_blog_admin_edit',{'id':blog.id}) }}" >Edit</a>
+                   
+                    
+                </span>
+                    <span class="column">
+                        <a href="{{ path('treewalker_blog_admin_delete',{'id':blog.id}) }}" >
+                            Delete
+                        </a>
+                    </span>
+        </div>
+        
+    {% else %}
+        There are no Blogs !
+    {% endfor %}
+    
+{% endblock content %}

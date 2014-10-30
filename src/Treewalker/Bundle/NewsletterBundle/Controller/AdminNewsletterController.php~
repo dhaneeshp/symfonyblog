@@ -1,0 +1,76 @@
+<?php
+
+namespace Treewalker\Bundle\NewsletterBundle\Controller;
+
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+
+use Treewalker\Bundle\NewsletterBundle\Entity\Newsletter;
+use Treewalker\Bundle\NewsletterBundle\Form\NewsletterType;
+
+
+class AdminNewsletterController extends Controller {
+    
+    /**
+     * the add action
+     * @Route("/add",name="treewalker_admin_newsletter_add")
+     */
+    
+    public function addAction(Request $request){
+        
+        $em = $this->getDoctrine()->getManager();
+        
+        $form = $this->createForm(new NewsletterType(), new Newsletter())->add('submit','submit');
+        
+        $form->handleRequest($request);
+        
+        if($form->isValid()){
+            
+            $em->persist($form->getData());
+            $em->flush();
+        }
+        
+        return $this->render("TreewalkerNewsletterBundle:Newsletter:add.html.twig",array(
+            'form' => $form->createView()
+            
+        ));
+    }
+    
+    
+    /**
+     * the display action
+     * @Route("/view/{id}",name="treewalker_admin_newsletter_view",requirements={"id"="\d+"})
+     * @Method({"GET","POST"})
+     * 
+     * @return array
+     */
+    
+    public function viewAction($id,Request $request){
+        
+        $em = $this->getDoctrine()->getManager();
+        
+        $newsletter = $em->getRepository("TreewalkerNewsletterBundle:Newsletter")->find($id);
+        
+        
+        return $this->render("TreewalkerNewsletterBundle:Newsletter:view.html.twig",
+                array('newsletter'=>$newsletter));
+        
+    }
+
+     /**
+     * the display action
+     * @Route("/uploadfile",name="treewalker_admin_newsletter_upload")
+     * @Method({"GET","POST"})
+     * 
+     * @return array
+     */   
+    public function uploadfile($type){
+        echo '<pre>';
+print_r($type);
+exit;
+   }
+}

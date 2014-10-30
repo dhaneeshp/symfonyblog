@@ -1,0 +1,4 @@
+services:
+#    treewalker_newsletter.example:
+#        class: Treewalker\Bundle\NewsletterBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

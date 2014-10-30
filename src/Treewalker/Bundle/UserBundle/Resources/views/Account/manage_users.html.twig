@@ -1,0 +1,39 @@
+{% extends "TreewalkerAdminBundle:Layout:layout.html.twig" %}
+{% block content %}
+    <div style="float:left; width:100%; ">
+        <span class="btn" style="float:right; margin-right:100px">
+            <a href="{{path('treewalker_admin_user_add')}}">Add User</a>
+        </span>
+        
+    </div>
+    {% for user in pagination %}
+        <div class="row">
+            <span class="column">
+                <a href="{{ path('treewalker_admin_user_edit',{'id':user.id}) }}" >
+                    {{ user.firstname }} {{ user.lastname }}
+                </a>                
+            </span>
+            <span class="column">
+
+                 {{ user.firstname }} {{ user.lastname }}
+            </span>
+            <span class="column">
+                <a href="{{ path('treewalker_admin_user_edit',{'id':user.id}) }}" >Edit</a>
+
+
+            </span>
+            <span class="column">
+                <a href="{{ path('treewalker_admin_user_delete',{'id':user.id}) }}" >
+                    Delete
+                </a>
+            </span>
+        </div>
+        
+    {% else %}
+        There are no Users !
+    {% endfor %}
+        
+    {% if pagination|length > 0 and paginator.getTotalPages() > 1 %}
+        {{ include('TreewalkerPaginationBundle:Default:paginator_navigation.html.twig', {'paginator' : paginator}) }}
+    {% endif %}
+{% endblock %}

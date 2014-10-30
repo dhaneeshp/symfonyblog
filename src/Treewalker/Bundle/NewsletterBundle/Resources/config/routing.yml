@@ -1,0 +1,5 @@
+treewalker_admin_newsletter_homepage:
+    prefix:     /admin/newsletter
+    resource: @TreewalkerNewsletterBundle/Controller/AdminNewsletterController.php
+    type: annotation
+    

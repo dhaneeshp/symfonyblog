@@ -1,0 +1,3 @@
+treewalker_blog_homepage:
+    path:     /
+    defaults: { _controller: TreewalkerBlogBundle:Blog:index }
