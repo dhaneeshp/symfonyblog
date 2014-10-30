@@ -1,0 +1,39 @@
+*{
+    padding:0px;
+    margin: 0px;
+}
+header{
+    float:left;
+    margin:0px;
+    width:100%;
+    background: #2b2f3a;
+}
+
+.logo{
+    float:left;
+    width:180px;
+    padding:10px;
+}
+.navbar{
+    float:left;
+    width:800px
+}
+.user_info_section{
+    float:left;
+    width:250px;
+    color:white;
+    line-height: 40px;
+}
+
+.user_info_section a{
+    color:white;
+}
+.content{
+    
+    width:1020px;
+    clear:both;
+    margin: auto;
+    padding-top:20px;
+    padding-bottom: 10px;
+}
+
